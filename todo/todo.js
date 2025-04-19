@@ -7,9 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadTasks = () => {
         const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
         taskList.innerHTML = ""; // Clear the list
+
         tasks.forEach((task, index) => {
             const taskItem = document.createElement("li");
             taskItem.className = task.completed ? "completed" : "";
+            taskItem.setAttribute("draggable", "true"); // Make the task draggable
+            taskItem.setAttribute("data-index", index); // Store the task index
 
             const buttonContainer = document.createElement("div");
             buttonContainer.className = "button-container";
@@ -22,7 +25,52 @@ document.addEventListener("DOMContentLoaded", () => {
             taskItem.innerHTML = `<span>${task.text}</span>`;
             taskItem.appendChild(buttonContainer);
             taskList.appendChild(taskItem);
+
+            // Add drag event listeners
+            taskItem.addEventListener("dragstart", handleDragStart);
+            taskItem.addEventListener("dragover", handleDragOver);
+            taskItem.addEventListener("drop", handleDrop);
+            taskItem.addEventListener("dragend", handleDragEnd);
         });
+    };
+
+    // Drag and Drop Handlers
+    let draggedItemIndex = null;
+
+    const handleDragStart = (e) => {
+        draggedItemIndex = e.target.getAttribute("data-index");
+        e.target.classList.add("dragging");
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault(); // Allow dropping
+        const target = e.target.closest("li");
+        if (target && target !== e.target) {
+            target.classList.add("drag-over");
+        }
+    };
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        const target = e.target.closest("li");
+        if (target) {
+            const targetIndex = target.getAttribute("data-index");
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+            // Swap tasks in the array
+            const draggedTask = tasks[draggedItemIndex];
+            tasks.splice(draggedItemIndex, 1);
+            tasks.splice(targetIndex, 0, draggedTask);
+
+            // Save and reload tasks
+            saveTasks(tasks);
+            loadTasks();
+        }
+    };
+
+    const handleDragEnd = (e) => {
+        e.target.classList.remove("dragging");
+        document.querySelectorAll(".drag-over").forEach((el) => el.classList.remove("drag-over"));
     };
 
     // Save tasks to localStorage
