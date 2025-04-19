@@ -6,6 +6,7 @@
     <title>New Tab</title>
     <link rel="stylesheet" href="background/background.css">
     <link rel="stylesheet" href="clock/clock.css">
+    <link rel="stylesheet" href="todo/todo.css">
     <link rel="icon" href="data:,\">
 </head>
 <body>
@@ -13,7 +14,16 @@
     <div class="moving-stars"></div>
     <div class="phrase"></div>
     <div id="clock"></div>
+    <div id="todo">
+        <h1>To-Do List</h1>
+        <div id="add-task">
+            <input type="text" id="task-input" placeholder="Enter a task" />
+            <button id="add-task">+</button>
+        </div>
+        <ul id="task-list"></ul>
+    </div>
     <script src="background/background.js"></script>
     <script src="clock/clock.js"></script>
+    <script src="todo/todo.js"></script>
 </body>
 </html>
