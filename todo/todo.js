@@ -2,17 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskInput = document.querySelector("#task-input");
     const addTaskButton = document.querySelector("#add-task");
     const taskList = document.querySelector("#task-list");
+    const todoToggle = document.querySelector("#todo-toggle");
+    const todoContainer = document.querySelector("#todo");
 
     // Load tasks from localStorage
     const loadTasks = () => {
         const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-        taskList.innerHTML = ""; // Clear the list
+        taskList.innerHTML = ""; 
 
         tasks.forEach((task, index) => {
             const taskItem = document.createElement("li");
             taskItem.className = task.completed ? "completed" : "";
-            taskItem.setAttribute("draggable", "true"); // Make the task draggable
-            taskItem.setAttribute("data-index", index); // Store the task index
+            taskItem.setAttribute("draggable", "true"); 
+            taskItem.setAttribute("data-index", index); 
 
             const buttonContainer = document.createElement("div");
             buttonContainer.className = "button-container";
@@ -121,6 +123,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Initial load
+    // Toggle visibility of the todo container
+    todoToggle.addEventListener("click", () => {
+        todoContainer.classList.toggle("hidden");
+    });
+
     loadTasks();
 });

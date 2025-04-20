@@ -24,7 +24,7 @@
     border-style: none;
 }
 
-#add-task {
+#add-task-line {
     display: flex;
     align-items: center;
     gap: 10px; /* Optional spacing between input and button */
@@ -38,7 +38,7 @@
     border-radius: 4px;
 }
 
-#add-task button {
+#add-task-line button {
     width: 44px; /* Make the button a square */
     height: 44px;
     font-size: 20px;
@@ -53,7 +53,7 @@
     font-size: 40px;
 }
 
-#add-task button:hover {
+#add-task-line button:hover {
     background-color: darkgray; /* Change color on hover */
 }
 
@@ -118,4 +118,24 @@
 #task-list li.drag-over {
     border: 2px dotted blue;
     background-color: #f0f8ff;
+}
+
+#todo-toggle {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    font-family: "Nunito", "Helvetica", sans-serif; 
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#todo-toggle:hover {
+    color: lightgray;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#todo.hidden {
+    display: none;
 }
