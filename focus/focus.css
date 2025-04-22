@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+#focus {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    font-family: "Nunito", "Helvetica", sans-serif; 
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#focus:hover {
+    color: lightgray;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#links-toggle,
+#todo-toggle {
+    transition: opacity 0.3s ease; 
+    opacity: 1; 
+}
+
+#links-toggle.hidden,
+#todo-toggle.hidden {
+    display: none; 
+    opacity: 0; 
+}
+
+#links-toggle.fade-in,
+#todo-toggle.fade-in {
+    opacity: 1; 
+}
+
+#links-toggle.fade-out,
+#todo-toggle.fade-out {
+    opacity: 0; 
+}
+
+#focus.focus-active {
+    color: rgba(255, 255, 255, 0.1); 
+}
+
+.hidden { 
+    display: none;
+}
