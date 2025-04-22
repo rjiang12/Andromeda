@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const editLink = (index) => {
         if (isEditing) {
-            alert("Finish editing the current link before editing another one.");
             return;
         }
     
@@ -63,6 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Populate the input fields with the current link data
         linkName.value = link.name;
         linkURL.value = link.url;
+
+        linkName.focus(); 
     
         // Remove the link from the list temporarily
         links.splice(index, 1);
