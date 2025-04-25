@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
             todoToggle.classList.add("fade-in");
             focusToggle.classList.remove("focus-active");
 
+            // Exit full screen 
+            document.exitFullscreen();
+
             // Remove the fade-in class after the animation
             setTimeout(() => {
                 linksToggle.classList.remove("fade-in");
@@ -27,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
             linksContainer.classList.add("hidden");
             todoContainer.classList.add("hidden");
 
+            // Fullscreen 
+            document.documentElement.requestFullscreen()
+
             // Add the hidden class after the animation
             setTimeout(() => {
                 linksToggle.classList.add("hidden");
@@ -37,5 +43,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Exit focus mode when fullscreen is exited
+    const exitFocusMode = () => {
+        if (!document.fullscreenElement) {
+            // Remove focus-active class
+            focusToggle.classList.remove("focus-active");
+
+            // Unhide the toggles
+            linksToggle.classList.remove("hidden");
+            todoToggle.classList.remove("hidden");
+        }
+    };
+
     focusToggle.addEventListener("click", focusClick);
+    document.addEventListener("fullscreenchange", exitFocusMode);
+
 });
+
