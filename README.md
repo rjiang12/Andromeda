@@ -1,5 +1,6 @@
 # Andromeda New Tab
 ## A simple and lightweight Chrome new tab extension
+#### Built in vanilla JS, HTML, and CSS
 
 ### Installation Instructions
 1. Download the repository and unzip the folder
