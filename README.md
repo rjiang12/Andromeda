@@ -8,6 +8,10 @@
 4. Link storage
 5. Relaxing and dynamic stars background
 
+### Gallery 
+<p align="center" id="top"><img src="/assets/andromeda_base.png"></img></p>
+<p align="center" id="top"><img src="/assets/andromeda_features.png"></img></p>
+
 ### Installation Instructions
 1. Download the repository and unzip the folder
 2. In Chrome, navigate to **chrome://extensions**
