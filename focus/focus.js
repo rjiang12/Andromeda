@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const todoToggle = document.querySelector("#todo-toggle");
     const linksContainer = document.querySelector("#links");
     const todoContainer = document.querySelector("#todo");
+    const greetingElement = document.querySelector("#greeting");
 
     const focusClick = () => {
         if (linksToggle.classList.contains("hidden") && todoToggle.classList.contains("hidden")) {
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             linksToggle.classList.add("fade-in");
             todoToggle.classList.add("fade-in");
             focusToggle.classList.remove("focus-active");
+            linksContainer.classList.remove("hidden");
 
             // Exit full screen 
             document.exitFullscreen();
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             focusToggle.classList.add("focus-active");
             linksContainer.classList.add("hidden");
             todoContainer.classList.add("hidden");
+            greetingElement.classList.add("hidden");
 
             // Fullscreen 
             document.documentElement.requestFullscreen()
@@ -52,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Unhide the toggles
             linksToggle.classList.remove("hidden");
             todoToggle.classList.remove("hidden");
+            greetingElement.classList.remove("hidden");
         }
     };
 
