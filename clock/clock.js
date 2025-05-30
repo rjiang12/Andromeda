@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateGreeting = () => {
         const now = new Date();
         const hours = now.getHours();
-        let greeting = "Good morning!";
+        let greeting = "Good morning";
         if (hours >= 12 && hours < 18) {
-            greeting = "Good afternoon!";
+            greeting = "Good afternoon";
         } else if (hours >= 18) {
-            greeting = "Good evening!";
+            greeting = "Good evening";
         }
         greetingElement.textContent = greeting;
     }
