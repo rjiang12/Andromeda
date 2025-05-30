@@ -41,10 +41,12 @@
     color: rgba(255, 255, 255, 0.8);
     border: none;
     border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+    text-align: center;
 }
 
 #name-input::placeholder {
     color: rgba(255, 255, 255, 0.8);
+    text-align: center;
 }
 
 #name-input:focus {
