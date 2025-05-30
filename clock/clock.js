@@ -53,5 +53,5 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateClock, 1000);
 
     updateGreeting();
-    setInterval(updateGreeting, 1000 * 3600); 
+    setInterval(updateGreeting, 1000 * 600); 
 });
