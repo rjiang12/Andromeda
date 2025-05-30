@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
         if (!name) {
-            let nameInput = document.querySelector(".name-input");
+            let nameInput = document.querySelector("#name-input");
             if (!nameInput) {
                 nameInput = document.createElement("input");
                 nameInput.type = "text";
